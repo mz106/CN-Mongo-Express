@@ -20,8 +20,13 @@ const deleteUser = async (name) => {
     console.log(`${name} has been removed`);
 };
 
+const updateUserAge = async (name, newAge) => {
+    const updateUser = await User.updateOne({name: name}, {$set:{age: newAge}});
+};
+
 module.exports = {
     addUser, 
     listUsers,
-    deleteUser
+    deleteUser,
+    updateUserAge
 };

@@ -1,7 +1,7 @@
 
 const express = require("express");
 
-const { addUser, listUsers, deleteUser } = require("../utils/user");
+const { addUser, listUsers, deleteUser, updateUserAge } = require("../utils/user");
 
 const router = express.Router();
 
@@ -30,6 +30,14 @@ router.post("/:name", async (req, res) => {
 router.delete("/:name", async (req, res) => {
     await deleteUser(req.body.name); 
     res.status(202).json({"msg": `${req.body.name} has been deleted.`});
+});
+
+router.put("/:name/:par", async (req, res) => {
+    
+        await updateUserAge(req.body.name, req.body.age);
+        res.status(202).json({"msg": `${req.body.name}s age has been updated to ${req.body.age}`});
+
+    
 });
 
 module.exports = router;
