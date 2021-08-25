@@ -15,7 +15,13 @@ const listUsers = async () => {
     console.log(allUsers);
 };
 
+const deleteUser = async (name) => {
+    await User.deleteOne({name: name});
+    console.log(`${name} has been removed`);
+};
+
 module.exports = {
     addUser, 
-    listUsers
+    listUsers,
+    deleteUser
 };

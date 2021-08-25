@@ -1,7 +1,7 @@
 
 const express = require("express");
 
-const { addUser, listUsers } = require("../utils/user");
+const { addUser, listUsers, deleteUser } = require("../utils/user");
 
 const router = express.Router();
 
@@ -25,6 +25,11 @@ router.get("/:name", (req, res) => {
 router.post("/:name", async (req, res) => {
     await addUser(req.body.name, req.body.age, req.body.job);
     res.status(201).json({"msg": `Created user ${req.body.name}`});
+});
+
+router.delete("/:name", async (req, res) => {
+    await deleteUser(req.body.name); 
+    res.status(202).json({"msg": `${req.body.name} has been deleted.`});
 });
 
 module.exports = router;
