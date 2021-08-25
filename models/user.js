@@ -1,9 +1,8 @@
 
 const mongoose = require("mongoose");
-const { connection } = require("../db");
 
-const Person = mongoose.model(
-    "people", {
+const User = mongoose.model(
+    "users", {
         name: {
             type: String,
             required: true
@@ -19,4 +18,4 @@ const Person = mongoose.model(
     }
 );
 
-module.exports = Person;
+module.exports = User;

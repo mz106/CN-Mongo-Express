@@ -1,11 +1,12 @@
 
 //function to add/search the database
 
-const { User } = require("../models/user");
+const User  = require("../models/user");
 
 const addUser = async (name, age, job) => {
     const newUser = new User({name, age, job});
     await newUser.save();
+    console.log("addUser has been reached")
     console.log(newUser);
 };
 
